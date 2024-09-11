@@ -4,11 +4,8 @@
 DIR="$(dirname "$0")"  # Gets the directory of the script
 ENV_FILE="$DIR/.env"
 GITHUB_REPO_BASE="https://github.com/NeuronInnovations/neuron-bin/raw/main"  # Base URL for direct downloads from the repository
-LOG_FILE="$DIR/neuron-sdk.log"  # Log file for storing output
-MAX_LOG_LINES=1000  # Maximum number of lines to keep in the log file
-LOG_TRUNCATE_INTERVAL=60  # Time in seconds between each log truncation
 
-# Command line parameters for the OS and architecture (e.g., linux, darwin and amd64, arm, arm64)
+# Command line parameters for the OS and architecture (e.g., linux, darwin, amd64, arm, arm64)
 OS_SUFFIX=$1
 ARCH_SUFFIX=$2
 
@@ -98,26 +95,19 @@ else
     echo "local_version is up-to-date: $local_version. No need to download."
 fi
 
-
-# Function to run the executable and monitor it, handling macOS and Linux differences
+# Function to run the executable and monitor it
 run_executable() {
     while true; do
         echo "Starting neuron-sdk-$OS_SUFFIX-$ARCH_SUFFIX..."
         chmod +x "$EXECUTABLE_PATH"
 
-        # Start the executable in the background
+        # Start the executable and wait for it to finish
         "$EXECUTABLE_PATH" "${PARAMS[@]}" &
-
         EXECUTABLE_PID=$!
-        
-      
 
         # Wait for the executable to stop running
         wait $EXECUTABLE_PID
         EXEC_EXIT_CODE=$?
-
-        # Kill the log truncation process when the executable stops
-        kill $LOG_TRUNCATION_PID
 
         if [ $EXEC_EXIT_CODE -ne 0 ]; then
             echo "The neuron-sdk-$OS_SUFFIX-$ARCH_SUFFIX has exited with status code $EXEC_EXIT_CODE. Restarting in 10 seconds..."
@@ -125,7 +115,9 @@ run_executable() {
             echo "The neuron-sdk-$OS_SUFFIX-$ARCH_SUFFIX exited normally. Exiting the script."
             break
         fi
-        sleep 10  # Delay before restarting the executable
+
+        # Wait for 10 seconds before restarting the executable
+        sleep 10
     done
 }
 
