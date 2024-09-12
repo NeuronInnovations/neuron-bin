@@ -102,7 +102,7 @@ run_executable() {
         chmod +x "$EXECUTABLE_PATH"
 
         # Start the executable and wait for it to finish
-        "$EXECUTABLE_PATH" "${PARAMS[@]}" &
+        "$EXECUTABLE_PATH" "${PARAMS[@]}" 
         EXECUTABLE_PID=$!
 
         # Wait for the executable to stop running
