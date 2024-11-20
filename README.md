@@ -40,7 +40,7 @@ To run the environment, execute the runner script. The script will check and dow
         "callsign":"JST772",
         "latitude":-37.11387634277344,
         "longitude":143.21461779005986,
-        "bAltitude":8107.68,                 // barometric altitude as reported from aircraft (not GPS)
+        "bAltitude":8107.68,                 // pressure altitude as reported from aircraft (not GPS) (fixed to 29.92 inHg - 1013.25 hPa)
         "heading":-63.43494882292201,
         "seconds":1726088232,                // epoch seconds of packet
         "nanoseconds":774481398,             // nanoseconds of packet
