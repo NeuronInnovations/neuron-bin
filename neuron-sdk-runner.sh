@@ -122,7 +122,7 @@ run_executable() {
 }
 
 # Combine fixed parameters with user-supplied overrides (if any)
-PARAMS=(-buyer-or-seller=buyer -mode=peer -port=1352 -buyer-udp-address=localhost:1234 "${@:3}")
+PARAMS=(--buyer-or-seller=buyer --mode=peer --port=1352 --buyer-udp-address=localhost:1234 "${@:3}")
 
 # Start the monitoring loop
 run_executable

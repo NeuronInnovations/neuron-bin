@@ -4,7 +4,7 @@
 
 - `curl -o neuron-sdk-runner.sh https://raw.githubusercontent.com/NeuronInnovations/neuron-bin/api-upgrade/neuron-sdk-runner.sh`
 
-Run `chmod +x neuron-sdk-runner.sh`.  
+Run `chmod +x neuron-sdk-runner.sh`
 
 ## 2 Prepare the .env environment
 If you have a `.env` file from neuron then place it next to the runner. If not, fill in the blanks in the `.env` file template you can get from here 
