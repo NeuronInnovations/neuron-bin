@@ -2,7 +2,7 @@
  
  Download the script `neuron-sdk-runner.sh` and `.env` to a local folder.
 
-- `curl -o neuron-sdk-runner.sh https://raw.githubusercontent.com/NeuronInnovations/neuron-bin/main/neuron-sdk-runner.sh`
+- `curl -o neuron-sdk-runner.sh https://raw.githubusercontent.com/NeuronInnovations/neuron-bin/api-upgrade/neuron-sdk-runner.sh`
 
 Run `chmod +x neuron-sdk-runner.sh`.  
 
