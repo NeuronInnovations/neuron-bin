@@ -42,7 +42,8 @@ To run the environment, execute the runner script. The script will check and dow
         "longitude": 143.21461779005986,
         "bAltitude": 8107.68,                 // Pressure altitude as reported from aircraft (fixed to 29.92 inHg - 1013.25 hPa)
         "heading": -63.43494882292201,        // this is the track angle, not true heading. 
-        "groundSpeed": 245.6,                 // Ground speed of the aircraft in m/s. 
+        "groundSpeed": 245.6,                 // Ground speed of the aircraft in m/s.
+        "verticalSpeed": 5.6,                 // Ground speed of the aircraft in m/s.
         "category": "Light ...",              // Aircraft category. A string representation of the type of ac
         "seconds": 1726088232,                // Epoch seconds of the packet at receiver
         "nanoseconds": 774481398,             // Nanoseconds of the packet at receiver
