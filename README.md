@@ -43,7 +43,7 @@ To run the environment, execute the runner script. The script will check and dow
         "bAltitude": 8107.68,                 // Pressure altitude as reported from aircraft (fixed to 29.92 inHg - 1013.25 hPa)
         "heading": -63.43494882292201,        // this is the track angle, not true heading. 
         "groundSpeed": 245.6,                 // Ground speed of the aircraft in m/s.
-        "verticalSpeed": 5.6,                 // Ground speed of the aircraft in m/s.
+        "verticalSpeed": 5.6,                 // Vertical speed of the aircraft in m/s.
         "category": "Light ...",              // Aircraft category. A string representation of the type of ac
         "seconds": 1726088232,                // Epoch seconds of the packet at receiver
         "nanoseconds": 774481398,             // Nanoseconds of the packet at receiver
@@ -59,7 +59,7 @@ Every 30 seconds, a packet with sensor statuses is transmitted. This is represen
 
 >**⚠️ Important:** The following will not be emitted in UDP in future versions.  
 
-    ```javascript
+   ```javascript
         {
             "messageType":"sensorStatus",
             "sensorMap":{                       // map that holds sensorID => last-message-packet-of-sensor
@@ -92,7 +92,7 @@ Every 30 seconds, a packet with sensor statuses is transmitted. This is represen
                 ...
             }
         }
-    ```
+   ```
 
 To consume these messages, simply listen for UDP traffic on the host:port. In Linux, you can debug with:
     `socat -v UDP-RECV:1234 STDOUT` or `nc -lu 1234` if you are sending to the localhost. Notice the latter needs restarting after the end of transmission. Notice this is a peer-to-peer high-throughput data stream with no bottlenecks in the middle. You receive the messages as soon as a sensor has one. A popular way of buffering the stream is to generate a map: `targetID => aircraftPosition` and update the map when a location change occurs or when the timestamp is too old.
