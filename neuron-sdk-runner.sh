@@ -3,7 +3,7 @@
 # Define paths and GitHub repo base URL
 DIR="$(dirname "$0")"  # Gets the directory of the script
 ENV_FILE="$DIR/.env"
-GITHUB_REPO_BASE="https://github.com/NeuronInnovations/neuron-bin/raw/api-upgrade"  # Base URL for direct downloads from the repository
+GITHUB_REPO_BASE="https://github.com/NeuronInnovations/neuron-bin/raw/main"  # Base URL for direct downloads from the repository
 
 # Command line parameters for the OS and architecture (e.g., linux, darwin, amd64, arm, arm64)
 OS_SUFFIX=$1
@@ -122,7 +122,7 @@ run_executable() {
 }
 
 # Combine fixed parameters with user-supplied overrides (if any)
-PARAMS=(--buyer-or-seller=buyer --mode=peer --port=1352 --buyer-udp-address=localhost:1234 "${@:3}")
+PARAMS=(--buyer-or-seller=buyer --mode=peer --port=1352 --buyer-udp-address=localhost:1234  --clear-cache=true "${@:3}")
 
 # Start the monitoring loop
 run_executable

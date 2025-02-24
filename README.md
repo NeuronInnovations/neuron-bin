@@ -2,7 +2,7 @@
  
  Download the script `neuron-sdk-runner.sh` and `.env` to a local folder.
 
-- `curl -o neuron-sdk-runner.sh https://raw.githubusercontent.com/NeuronInnovations/neuron-bin/api-upgrade/neuron-sdk-runner.sh`
+- `curl -o neuron-sdk-runner.sh https://raw.githubusercontent.com/NeuronInnovations/neuron-bin/main/neuron-sdk-runner.sh`
 
 Run `chmod +x neuron-sdk-runner.sh`
 
@@ -104,4 +104,4 @@ To consume these messages, simply listen for UDP traffic on the host:port. In Li
     ```
 
     Note that you need to leave the `--radius=...` flag out. The data provider (seller) is identified by their public keys. You can find these in explorer.neuron.world by clicking on a data provider, then looking at its account in the chain explorer and copying the public (admin) key of the data provider's node.
-+  `"--clear-cache=false"` The application stores connectivity information in order to speed up subsequent launches; for instance, IP addresses and ports are cached as well as internal shared accounts between buyer and seller. However, if you relaunch the program with a different port then you must clear the cache by setting the flag to true. Alternatively, yoy can keep the flag to be always true, however this comes at an additional cost of re-creating shared accounts or not being able to connect in case there are communication issues with directory services. 
++  `"--clear-cache=false"` The application stores connectivity information in order to speed up subsequent launches; for instance, IP addresses and ports are cached as well as internal shared accounts between buyer and seller. However, if you relaunch the program with a different port then you must clear the cache by setting the flag to true. At the moment, the default is to always clear the cache on system boot. 
